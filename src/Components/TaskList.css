@@ -45,7 +45,7 @@
   color: #004085;
 }
 
-/* Buttons */
+
 
 .edit_btn,
 .delete_btn {
@@ -76,7 +76,7 @@
   background-color: #a71d2a;
 }
 
-/* Modal */
+
 
 .modal_overlay {
   position: fixed;
@@ -155,7 +155,7 @@
   background-color: #5a6268;
 }
 
-/* Messages */
+
 .success_msg {
   color: green;
   margin-bottom: 15px;

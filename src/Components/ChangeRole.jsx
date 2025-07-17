@@ -52,7 +52,7 @@ const ChangeRole = ({ currentUser }) => {
         err?.response?.data?.message || 'Failed to update role. Please try again.';
       setRoleChangeError(message);
 
-      setTimeout(() => setRoleChangeError(''), 1000);
+      setTimeout(() => setRoleChangeError(''), 3000);
     }
   };
 

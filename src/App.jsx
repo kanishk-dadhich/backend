@@ -11,6 +11,8 @@ import ChangePassword from "./Components/ChangePassword"
 import CreateTask from "./Components/CreateTask"
 import TaskList from "./Components/TaskList"
 import ChangeRole from "./Components/ChangeRole"
+import OwnTask from "./Components/OwnTask"
+import StudentForm from "./Components/StudentForm"
 
 function App() {
 
@@ -34,6 +36,13 @@ function App() {
             </Layout>
           </ProtectedRoutes>} />
 
+           <Route path="/ownTask" element={<ProtectedRoutes>
+            <Layout>
+              <OwnTask />
+            </Layout>
+          </ProtectedRoutes>} />
+          <Route path="/studentCreate" element={<StudentForm/>}/>
+
           <Route path="/createTask" element={<AuthorizationRouter roleAccess={['admin']} >
             <Layout>
               <CreateTask />
@@ -46,11 +55,12 @@ function App() {
             </Layout>
           </AuthorizationRouter>} />
 
-           <Route path="/changeRole" element={<AuthorizationRouter roleAccess={['admin']} >
+           <Route path="/changeRole" element={<AuthorizationRouter roleAccess={['admin','manager','team-lead']} >
             <Layout>
               <ChangeRole />
             </Layout>
           </AuthorizationRouter>} />
+          <Route path="/*" element={<Login />} />
         </Routes>
       </Router>
     </AuthProvider>

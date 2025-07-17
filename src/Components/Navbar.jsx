@@ -6,6 +6,8 @@ import { AuthContext } from '../Context/AuthContex';
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const isAdmin = user?.role === 'admin';
+    const isManager=user?.role==='manager';
+    const isTeamLead=user?.role==='team-lead'
 
     return (
         <nav className="navbar">
@@ -20,6 +22,11 @@ const Navbar = () => {
                 <NavLink to="/changePassword" className="nav-link" activeClassName="active-link">
                     Change Password
                 </NavLink>
+
+                <NavLink to="/ownTask" className="nav-link" activeClassName="active-link">
+                    Your Task
+                </NavLink>
+
                 {isAdmin && (
                     <NavLink to="/createTask" className="nav-link" activeClassName="active-link">
                         Create Task
@@ -30,7 +37,7 @@ const Navbar = () => {
                         All Tasks
                     </NavLink>
                 )}
-                  {isAdmin && (
+                  {(isAdmin || isManager || isTeamLead) && (
                     <NavLink to="/changeRole" className="nav-link" activeClassName="active-link">
                         Change-Role
                     </NavLink>
